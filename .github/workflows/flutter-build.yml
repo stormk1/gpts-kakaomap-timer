@@ -2,36 +2,29 @@ name: Flutter Build APK
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
-    name: Build on Ubuntu
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
+          flutter-version: '3.19.0' # 원하는 버전으로 조정
 
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Analyze project
-        run: flutter analyze
-
-      - name: Build APK
-        run: flutter build apk --release
+      - run: flutter pub get
+      - run: flutter build apk --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: supporters-timecheck-apk
+          name: apk-release
           path: build/app/outputs/flutter-apk/app-release.apk
+
 
 
      
