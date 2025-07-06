@@ -29,6 +29,8 @@ class _SupportersAppState extends State<SupportersApp> {
       _distanceResult = distance != null ? '${distance.toStringAsFixed(2)} km' : '실패';
     });
   }
+  // trigger rebuild
+
 
   @override
   Widget build(BuildContext context) {
