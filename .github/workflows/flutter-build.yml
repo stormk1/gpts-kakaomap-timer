@@ -31,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: supporters-timecheck-apk
-          path: build/app/outputs/flutter-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
